@@ -9,6 +9,17 @@ body {
   background: linear-gradient(to bottom, #0f0c29, #2068bb, #24243e);
 }
 
+.whole-page{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-part{
+  background-color: #0f0c29;
+  color: #fff;
+}
+
 .main {
   width: 350px;
   height: 500px;

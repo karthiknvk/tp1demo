@@ -55,7 +55,8 @@ def login(request):
     if user is not None:
       auth.login(request,user)
       print("user logged in")
-      return redirect('hi')
+      messages.success(request,"")
+      return redirect('prefer')
     else:
       print("invalid credentials")
       messages.error(request, 'Invalid credentials')
@@ -63,5 +64,5 @@ def login(request):
     
 
 
-def hi(request):
-  return render(request,"hi.html")
+def prefer(request):
+  return render(request,"prefer.html")

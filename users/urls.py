@@ -8,5 +8,5 @@ urlpatterns=[
   path('',views.index,name='index'),#root url
   path('signup',views.signup,name='signup'),
   path('login',views.login,name='login'),
-  path('hi',views.hi,name='hi'),
+  path('prefer',views.prefer,name='prefer'),
 ]+static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
