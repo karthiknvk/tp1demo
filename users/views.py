@@ -56,7 +56,7 @@ def login(request):
       auth.login(request,user)
       print("user logged in")
       messages.success(request,"")
-      return redirect('prefer')
+      return redirect('packages/')
     else:
       print("invalid credentials")
       messages.error(request, 'Invalid credentials')
@@ -64,5 +64,4 @@ def login(request):
     
 
 
-def prefer(request):
-  return render(request,"prefer.html")
+

@@ -42,49 +42,50 @@
     </div>
 
     <section class="dashboard">
-      <!--  <h2>User Dashboard</h2>   -->
-      <form>
-        <label for="budget">Budget:</label><br />
+
+      <div class="signup">
+        <form action="{% url 'budgetview' %}" method="POST">
+          {% csrf_token %}
+          <label for="budget">Budget:</label><br />
         <!--<input type="number" id="budget" name="budget" required /> -->
-        <select name="budge" id="budget" required="">
+          <select name="budget" id="budget" required="">
           <option value="">Select budget</option>
           {% for i in pricelist %}
           <option value="">{{i}}</option>
           {% endfor %}
-        </select>
-        <br/>
-          <!--
-          <option value="">Select budget</option>
-          <option value="">1000-2500</option>
-          <option value="">2500-5000</option>
-          <option value="">5000-7500</option>
-          <option value="">7500-1000</option>
-          -->
-          
-        <label for="destination">Destination:</label><br />
-        <select name="destination" id="destination" required>
+          </select>
+          <button type="submit" name="budget" >Submit</button>
+        </form>
+      </div>
+      
+      <div class="login">
+        <form action="{% url 'destinationview' %}" method="POST">
+          {% csrf_token %}
+          <label for="destination">Destination:</label><br />
+          <select name="destination" id="destination" required>
           <option value="">Select Destination</option>
           {% for i in destinationlist %}
           <option value="">{{i}}</option>
           {% endfor %}
-        </select>
+          </select>
+          <button type="submit" name="destination" onclick="">Submit</button>
+        </form>
+      </div>
+      <!--  <h2>User Dashboard</h2>   -->
+      <!--
+        <form>
+        
         <br/>
-          <!--
-            <option value="">Ernakulam</option>
-            <option value="">Kozhikode</option>
-            <option value="">Thriuvananthapuram</option>
-            <option value="">Wayanad</option>
-          -->
           
         
-        <!--
-          <input type="text" id="destination" name="destination" required /><br/>
-
-        -->
+        <br/>
+          
         
         <button class="submit" type="submit">Search</button>
       </form>
     </section>
+      -->
+      
 
     <!-- Additional sections and features can be added here -->
 
