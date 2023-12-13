@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Set1,Set2,Set3,Set4
 # Create your views here.
 
-def logout(request):
+def logoutview(request):
     auth.logout(request)
     print("logged out")
     return redirect('/')

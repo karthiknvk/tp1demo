@@ -7,14 +7,14 @@ from django.contrib import messages
 def index(request):
   if request.method=="POST":
     if 'login' in request.POST:
-      return login(request)
+      return loginview(request)
     elif 'signup' in request.POST:
-      return signup(request)
+      return signupview(request)
   else:
     django_messages = messages.get_messages(request)
     return render(request,"index.html", {'django_messages': django_messages})
   
-def signup(request):
+def signupview(request):
   if request.method=='POST':
     username=request.POST['username']
     email=request.POST['email']
@@ -47,7 +47,7 @@ def signup(request):
   
 
 
-def login(request):
+def loginview(request):
   if request.method=='POST':
     username=request.POST["username"]
     password=request.POST["password"]
