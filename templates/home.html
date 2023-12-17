@@ -61,6 +61,7 @@
                       </a>
                     
                   </li>
+                  
                   <li class="nav-item">
                     <!--<a
                       class="nav-link active text-white"
@@ -95,6 +96,24 @@
                     </a>
                     
                   </li>
+                  <li class="nav-item">
+                    <!-- <a
+                      class="nav-link active text-white"
+                      aria-current="page"
+                      href="#"
+                      >Review</a
+                    > -->
+                    <a href="accountview">
+                      <button
+                      class="nav-b btn btn-outline-secondary me-2"
+                      type="button"
+                    >
+                      Account
+                    </button>
+                    </a>
+                    
+                  </li>
+                  
                 </ul>
               </div>
             </div>
@@ -105,31 +124,47 @@
 
     <section class="dashboard">
       <!--  <h2>User Dashboard</h2>   -->
-      <form action="{% url 'packageview' %}" method="POST">
+      <!--
+        <form action="{% url 'packageview' %}" method="POST">
         {% csrf_token %}
         <label for="budget">Budget:</label><br />
-        <!--<input type="number" id="budget" name="budget" required />  -->
+        
         <select name="budget" id="budget" required="">
           <option value="">Select budget</option>
-          {% for i in pricelist %}
-          <option value="">{{i}}</option>
+          {% for price in pricelist %}
+          <option value="{{price}}">{{price}}</option>
           {% endfor %}
         </select>
-
         <br />
-
         <label for="destination">Destination(optional):</label><br />
-        <!--
-        <input
-          type="text"
-          id="destination"
-          name="destination"
-          placeholder="Enter Destination"
-        /><br /> -->
         <select name="destination" id="destination" >
           <option value="">Select Destination</option>
-          {% for i in destinationlist %}
-          <option value="">{{i}}</option>
+          {% for place in destinationlist %}
+          <option value="{{place}}">{{place}}</option>
+          {% endfor %}
+        </select>
+        <br />
+
+        <button class="submit" type="submit">Search</button>
+      </form>
+      -->
+      
+      <form action="{% url 'packageview' %}" method="POST">
+        {% csrf_token %}
+        <label for="day">Day:</label><br />
+        
+        <select name="day" id="day" required="">
+          <option value="">Select days</option>
+          {% for day in daylist %}
+          <option value="{{day}}">{{day}}</option>
+          {% endfor %}
+        </select>
+        <br />
+        <label for="destination">Destination(optional):</label><br />
+        <select name="destination" id="destination" >
+          <option value="">Select Destination</option>
+          {% for place in destinationlist %}
+          <option value="{{place}}">{{place}}</option>
           {% endfor %}
         </select>
         <br />

@@ -1,5 +1,6 @@
 {% load static %}
 {% static "images" as baseUrl%}
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -13,12 +14,32 @@
 <body>
   <h1>TOUR PACKAGES</h1>
   <br>
-  <b>PACKAGES UNDER 5000</b>
-  {% for package in packagelist1 %}
-  <p>Package number :{{package.packagnumber}}</p>
-  <p>District :{{package.district}}</p>
-  <p>Spotname :{{package.spotname}}</p>
-  image:<img src="{{package.img.url}}" alt="no image found">
+  {% if day == 1 %}
+  <b>1 DAY PACKAGES</b>
+  {% elif day == 2 %}
+  <b>2 DAY PACKAGES</b>
+  {% elif day == 3 %}
+  <b>3 DAY PACKAGES</b>
+  {% elif day == 4 %}
+  <b>4 DAY PACKAGES</b>
+  {% elif day == 5 %}
+  <b>5 DAY PACKAGES</b>
+  {% elif day == 6 %}
+  <b>6 DAY PACKAGES</b>
+  {% elif day == 7 %}
+  <b>7 DAY PACKAGES</b>
+  {% endif %}
+
+  {% for package in packagelist %}
+  <ul>
+  <li>Package number :{{package.packagnumber}}</li>
+  <li>District     :{{package.district}}</li>
+  <li>Spotname     :{{package.spotname}}</li>
+  <li>Landscape     :{{package.landscape}}</li>
+  <li>Cafespot     :{{package.cafespot}}</li>
+  <li>Description  :{{package.description}}</li>
+  <li>image           :<img src="{{package.img.url}}" alt="no image found"></li>
+  </ul>
   <br>
   <br>
   {% endfor %}
