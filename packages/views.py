@@ -49,6 +49,9 @@ def packageview(request):
 def packageview(request):
   day=request.POST.get('day')
   destination = request.POST.get('destination', '')
-  packagelist=Packageset.objects.all()
+  if destination:
+     packagelist=Packageset.objects.filter(district=destination)
+  else:
+    packagelist=Packageset.objects.all()
   return render(request,'tourpackages.html',{'packagelist':packagelist,'day':day})
 

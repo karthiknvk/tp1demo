@@ -5,11 +5,11 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def addreview(request):
-  return HttpResponse("ADD REVIEW")
+  return render(request,'addreview.html')
 
 @login_required
 def addspot(request):
-  return HttpResponse("ADD SPOT")
+  return render(request,'addspot.html')
 
 def showreview(request):
   pass
