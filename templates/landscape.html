@@ -49,7 +49,7 @@
       </div>
       
       <div class="col custom-col">
-        {% for packagecode,packagedetailslist in mainpackagedict.items %}
+        {% for packagecode,packagedetailslist in mainpackagedictcopy.items %}
         <div class="container">
           <h4>Package:{{packagecode}}</h4></li>
           <br>
@@ -96,7 +96,6 @@
   <!--FOR 1 DAY PACKAGES-->
 
 
-
   <!--FOR 2 DAY PACKAGES-->
   {% elif day == '2' %}
   <div class="top-part">
@@ -124,7 +123,7 @@
       </div>
       
       <div class="col custom-col">
-        {% for packagecode,packagedetailslist in mainpackagedict.items %}
+        {% for packagecode,packagedetailslist in mainpackagedictcopy.items %}
         <div class="container">
           <h4>Package:{{packagecode}}</h4></li>
           <br>
@@ -168,17 +167,17 @@
       <br>
     </div> 
   </div>
+  
   <!--FOR 2 DAY PACKAGES-->
 
 
-
   <!--FOR 3 DAY PACKAGES-->
-  {% elif day == '3' %}
+  {% elif day == 3 %}
   <b>3 DAY PACKAGES</b>
   <h2>1 DAY PACKAGES</h2>
   <br>
   <br>
-  {% for packagecode,packagedetailslist in mainpackagedict.items %}
+  {% for packagecode,packagedetailslist in mainpackagedictcopy.items %}
     <h4>Package:{{packagecode}}</h4></li>
     <br>
     <br>
@@ -234,13 +233,11 @@
     <p>{{packagedetailslist}}</p>
   -->
   {% endfor %}
-
   <!--FOR 3 DAY PACKAGES-->
 
 
-
   <!--FOR 4 DAY PACKAGES-->
-  {% elif day == '4' %}
+  {% elif day == 4 %}
   <div class="top-part">
     <h2>4 DAY PACKAGES</h2>
   </div>
@@ -266,7 +263,7 @@
       </div>
       
       <div class="col custom-col">
-        {% for packagecode,packagedetailslist in mainpackagedict.items %}
+        {% for packagecode,packagedetailslist in mainpackagedictcopy.items %}
         <div class="container">
           <h4>Package:{{packagecode}}</h4></li>
           <br>
@@ -314,7 +311,7 @@
 
 
   <!--FOR 5 DAY PACKAGES-->
-  {% elif day == '5' %}
+  {% elif day == 5 %}
   <div class="top-part">
     <h2>5 DAY PACKAGES</h2>
   </div>
@@ -340,7 +337,7 @@
       </div>
       
       <div class="col custom-col">
-        {% for packagecode,packagedetailslist in mainpackagedict.items %}
+        {% for packagecode,packagedetailslist in mainpackagedictcopy.items %}
         <div class="container">
           <h4>Package:{{packagecode}}</h4></li>
           <br>
@@ -387,9 +384,8 @@
   <!--FOR 5 DAY PACKAGES-->
 
 
-
   <!--FOR 6 DAY PACKAGES-->
-  {% elif day == '6' %}
+  {% elif day == 6 %}
   <div class="top-part">
     <h2>6 DAY PACKAGES</h2>
   </div>
@@ -415,7 +411,7 @@
       </div>
       
       <div class="col custom-col">
-        {% for packagecode,packagedetailslist in mainpackagedict.items %}
+        {% for packagecode,packagedetailslist in mainpackagedictcopy.items %}
         <div class="container">
           <h4>Package:{{packagecode}}</h4></li>
           <br>
@@ -460,7 +456,6 @@
     </div> 
   </div>
   <!--FOR 6 DAY PACKAGES-->
-
 
 
   <!--FOR 7 DAY PACKAGES-->
@@ -490,7 +485,7 @@
       </div>
       
       <div class="col custom-col">
-        {% for packagecode,packagedetailslist in mainpackagedict.items %}
+        {% for packagecode,packagedetailslist in mainpackagedictcopy.items %}
         <div class="container">
           <h4>Package:{{packagecode}}</h4></li>
           <br>
@@ -538,6 +533,9 @@
 
 
   {% endif %}
+  <!--
+  <small>spot.touristspot</small>
+  -->
   
 </body>
 </html>

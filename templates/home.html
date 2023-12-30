@@ -161,7 +161,7 @@
         </select>
         <br />
         <label for="destination">Destination(optional):</label><br />
-        <select name="destination" id="destination" >
+        <select name="destination" id="destination" required="">
           <option value="">Select Destination</option>
           {% for place in destinationlist %}
           <option value="{{place}}">{{place}}</option>

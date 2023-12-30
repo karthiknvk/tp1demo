@@ -1,0 +1,275 @@
+{% load static %}
+{% static "images" as baseUrl%}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tour packages</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/tourpackages.css' %}" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <h1>TOUR PACKAGES</h1>
+  <br>
+  <br>
+
+
+  <!--FOR 1 DAY PACKAGES-->
+  {% if day == '1' %}
+  <h2>1 DAY PACKAGES</h2>
+  <br>
+  <br>
+  {% for packagecode,packagedetailslist in mainpackagedict.items %}
+  <div class="container">
+    <h4>Package:{{packagecode}}</h4></li>
+    <br>
+    <br>
+    <div class="row row-cols-3">  
+      <br>
+      {% for package in packagedetailslist %}
+      <div class="col">
+            <h5>{{ package.4 }}</h5>
+            <ul type="square">
+              <li type="none">
+                <br>
+                <img src="{{package.9.url}}" alt="no image found" style="height: 150px; width:150px;"></li>
+              <li>Location    :{{package.5}}</li>
+              <li>Landscape   :{{package.6}}</li>
+              <li>Cafespot    :{{package.7}}</li>
+              <li>Description :{{package.8}}</li>
+              <br>
+            </ul>
+      </div> 
+      {% endfor %}
+    </div>
+  </div>
+  <div class="select-package-button-part">
+    <form method="post" action="packageview">
+      {% csrf_token %}
+      <input type="hidden" name="package_code" value="{{ packagecode }}">
+      <button
+      class="nav-b btn btn-outline-secondary me-2"
+      type="submit"
+      name="itinerary"
+    >
+      Select Package
+    </button>
+    </form>
+  </div>
+  
+  <br><br>
+  <!--
+    <p>{{packagedetailslist}}</p>
+  -->
+  {% endfor %}
+  <br>
+  
+  <div class="landscape-filter-part">
+    <h5>CHOOSE YOUR LANDSCAPE</h5>
+    <form id="filterForm" action="packageview" method="POST">
+      {% csrf_token %}
+      <label><input type="checkbox" name="filter" value="Temple"> Temple</label>
+      <label><input type="checkbox" name="filter" value="Beach"> Beach</label>
+      <label><input type="checkbox" name="filter" value="Park"> Park</label>
+      <label><input type="checkbox" name="filter" value="Museum"> Museum</label>
+      <label><input type="checkbox" name="filter" value="Waterfalls"> Waterfalls</label>
+      <label><input type="checkbox" name="filter" value="Hill"> Hill</label>
+      
+      <button type="submit" name="filterform">Apply Filters</button>
+    </form>
+  </div>
+  <!--FOR 1 DAY PACKAGES-->
+
+  <!--
+    <ul>
+    <li>Package number :{{package.packagnumber}}</li>
+    <li>District     :{{package.district}}</li>
+    <li>Spotname     :{{package.spotname}}</li>
+    <li>Landscape     :{{package.landscape}}</li>
+    <li>Cafespot     :{{package.cafespot}}</li>
+    <li>Description  :{{package.description}}</li>
+    <li>image           :
+    <br>
+      <img src="{{package.img.url}}" alt="no image found" style="height: 150px; width:150px;"></li>
+    </ul>
+    <br>
+    <br>
+  -->
+  
+  
+
+  <!--FOR 2 DAY PACKAGES-->
+  {% elif day == '2' %}
+  <h2>2 DAY PACKAGES</h2>
+  <br>
+  <br>
+  {% for packagecode,packagedetailslist in mainpackagedict.items %}
+  <div class="container">
+    <h4>Package:{{packagecode}}</h4></li>
+    <br>
+    <br>
+    <div class="row row-cols-3">  
+      <br>
+      {% for package in packagedetailslist %}
+      <div class="col">
+            <h5>{{ package.4 }}</h5>
+            <ul type="square">
+              <li type="none">
+                <br>
+                <img src="{{package.9.url}}" alt="no image found" style="height: 150px; width:150px;"></li>
+              <li>Location    :{{package.5}}</li>
+              <li>Landscape   :{{package.6}}</li>
+              <li>Cafespot    :{{package.7}}</li>
+              <li>Description :{{package.8}}</li>
+              <br>
+            </ul>
+      </div> 
+      {% endfor %}
+    </div>
+  </div>
+  <div class="select-package-button-part">
+    <form method="post" action="packageview">
+      {% csrf_token %}
+      <input type="hidden" name="package_code" value="{{ packagecode }}">
+      <button
+      class="nav-b btn btn-outline-secondary me-2"
+      type="submit"
+      name="itinerary"
+    >
+      Select Package
+    </button>
+    </form>
+  </div>
+  
+  <br><br>
+  <!--
+    <p>{{packagedetailslist}}</p>
+  -->
+  {% endfor %}
+  <br>
+  
+  <div class="landscape-filter-part">
+    <h5>CHOOSE YOUR LANDSCAPE</h5>
+    <form id="filterForm" action="packageview" method="POST">
+      {% csrf_token %}
+      <label><input type="checkbox" name="filter" value="Temple"> Temple</label>
+      <label><input type="checkbox" name="filter" value="Beach"> Beach</label>
+      <label><input type="checkbox" name="filter" value="Park"> Park</label>
+      <label><input type="checkbox" name="filter" value="Museum"> Museum</label>
+      <label><input type="checkbox" name="filter" value="Waterfalls"> Waterfalls</label>
+      <label><input type="checkbox" name="filter" value="Hill"> Hill</label>
+      
+      <button type="submit" name="filterform">Apply Filters</button>
+    </form>
+  </div>
+  <!--FOR 2 DAY PACKAGES-->
+
+
+  
+  {% elif day == 3 %}
+  <b>3 DAY PACKAGES</b>
+  <h2>1 DAY PACKAGES</h2>
+  <br>
+  <br>
+  {% for packagecode,packagedetailslist in mainpackagedict.items %}
+    <h4>Package:{{packagecode}}</h4></li>
+    <br>
+    <br>
+    <div class="conatiner">
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{% static 'images/logo.png' %}" class="d-block " alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'images/Travel(1).jpg' %}" class="d-block " alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'images/logo.png' %}" class="d-block " alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+        <div class="col d-grid justify-content-center">
+          {% for package in packagedetailslist %}
+                <h5>{{ package.4 }}</h5>
+                <br> 
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="select-package-button-part">
+      <form method="post" action="packageview">
+        {% csrf_token %}
+        <input type="hidden" name="package_code" value="{{ packagecode }}">
+        <button
+        class="nav-b btn btn-outline-secondary me-2"
+        type="submit"
+        name="itinerary"
+      >
+        Select Package
+      </button>
+      </form>
+    </div>
+  
+  <br><br>
+  <!--
+    <p>{{packagedetailslist}}</p>
+  -->
+  {% endfor %}
+
+
+  {% elif day == 4 %}
+  <b>4 DAY PACKAGES</b>
+  {% elif day == 5 %}
+  <b>5 DAY PACKAGES</b>
+  {% elif day == 6 %}
+  <b>6 DAY PACKAGES</b>
+
+
+  {% elif day == 7 %}
+  <b>7 DAY PACKAGES</b>
+  <br>
+  <br>
+  {% for packagecode,packagedetailslist in mainpackagedict.items %}
+  <ul>
+    <li>Package:{{packagecode}}</li>
+    <li>Spots</li>
+    <ol type="1">
+        {% for package in packagedetailslist %}
+          <li>{{package.4}}</li>
+        {% endfor %}
+    </ol>
+    <a href="/usercontribution/addspot">
+      <button
+      class="nav-b btn btn-outline-secondary me-2"
+      type="button"
+    >
+      Select Package
+    </button>
+    </a>
+  </ul>
+  {% endfor %}
+
+  {% endif %}
+  <!--
+  <small>spot.touristspot</small>
+  -->
+  
+</body>
+</html>
